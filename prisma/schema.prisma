@@ -36,6 +36,7 @@ model Review {
   movieId  String
   title    String?
   content  String
+  score Int
   comments Comment[]
   User     User    @relation(fields: [userId], references: [id])
   userId   String

@@ -1,5 +1,5 @@
 import prisma from "../utils/db";
-import { comparePasswords, createJWT, hashPassword } from "../utils/auth";
+import { comparePasswords, createJWT, hashPassword } from "../utils/token";
 
 async function createUser(username: string, password: string) {
     try {

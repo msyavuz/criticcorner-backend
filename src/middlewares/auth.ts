@@ -1,28 +1,5 @@
+import { Request, Response, NextFunction } from "express";
 import jwt, { JwtPayload } from "jsonwebtoken";
-import { NextFunction, Request, Response } from "express";
-import * as bcrypt from "bcrypt";
-
-export const createJWT = (user: any) => {
-    const token = jwt.sign(
-        {
-            id: user.id,
-            username: user.username,
-        },
-        process.env.JWT_SECRET!,
-    );
-    return token;
-};
-
-export const comparePasswords = async (
-    password: string,
-    hashedPassword: string,
-) => {
-    return bcrypt.compare(password, hashedPassword);
-};
-
-export const hashPassword = async (password: string) => {
-    return bcrypt.hash(password, 5);
-};
 
 export const protect = (req: Request, res: Response, next: NextFunction) => {
     const bearer = req.headers.authorization;
