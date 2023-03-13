@@ -4,6 +4,7 @@ import morgan from "morgan";
 import movieRouter from "./routes/movie.route";
 import userRouter from "./routes/user.route";
 import reviewRouter from "./routes/review.route";
+import followRouter from "./routes/follow.route";
 import { protect } from "./middlewares/auth";
 
 const app = express();
@@ -16,5 +17,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/api", userRouter);
 app.use("/api", protect, movieRouter);
 app.use("/api", protect, reviewRouter);
+app.use("/api", protect, followRouter);
 
 export default app;

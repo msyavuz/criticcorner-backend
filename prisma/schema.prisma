@@ -18,6 +18,12 @@ model User {
   updatedAt      DateTime  @updatedAt
   reviews        Review[]
   comments       Comment[]
+
+  following User[] @relation("Following")
+  symFollowing User[] @relation("Following")
+  followers User[] @relation("Followers")
+  symFollowers User[] @relation("Followers")
+
 }
 
 model Movie {
